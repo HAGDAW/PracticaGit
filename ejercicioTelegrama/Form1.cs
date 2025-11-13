@@ -23,9 +23,6 @@ namespace ejercicioTelegrama
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
-        { }
-
-           private void btnCalcularPrecio_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
             char tipoTelegrama = 'o'; // ERROR 1: Inicializamos a 'o' para que por defecto sea ordinario
@@ -36,12 +33,12 @@ namespace ejercicioTelegrama
             textoTelegrama = txtTelegrama.Text;
 
             // ¿Telegrama urgente?
-            if (chkUrgente.Checked)
+            if (rbUrgente.Checked)
             {
                 tipoTelegrama = 'u';
             }
 
-            
+
             string[] palabras = textoTelegrama.Split(' ');
             numPalabras = palabras.Length;
 
@@ -54,7 +51,7 @@ namespace ejercicioTelegrama
                 }
                 else
                 {
-                    
+
                     // Coste base (2.5) + 0.5 por cada palabra extra
                     coste = 2.5 + 0.5 * (numPalabras - 10);
                 }
@@ -80,6 +77,9 @@ namespace ejercicioTelegrama
             }
 
             txtPrecio.Text = coste.ToString() + " euros";
+        }
+        private void btnCalcularPrecio_Click(object sender, EventArgs e)
+        {
         }
         private void lblCoste_Click(object sender, EventArgs e)
         {
